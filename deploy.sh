@@ -1,4 +1,4 @@
-
+# .  .  ubuntu 22.04 LTS
 (cd s3fs && \
 dpkg -i ./mailcap_3.70+nmu1ubuntu1_all.deb && \
 dpkg -i ./mime-support_3.66_all.deb && \
@@ -16,4 +16,6 @@ dpkg -i docker-ce_20.10.7~3-0~ubuntu-xenial_amd64.deb && \
 date )
 
 
-
+# ref: 
+# rpm install 
+# https://blog.csdn.net/qyq88888/article/details/131263828
