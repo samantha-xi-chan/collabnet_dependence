@@ -1,4 +1,7 @@
 # .  .  ubuntu 22.04 LTS
+echo "DefaultLimitNOFILE=1048576" >> /etc/systemd/system.conf
+
+
 (cd s3fs && \
 dpkg -i ./mailcap_3.70+nmu1ubuntu1_all.deb && \
 dpkg -i ./mime-support_3.66_all.deb && \
@@ -14,6 +17,19 @@ dpkg -i containerd.io_1.6.4-4.1_amd64.deb && \
 dpkg -i docker-ce-cli_24.0.5-2_amd64.deb  && \
 dpkg -i docker-ce_20.10.7~3-0~ubuntu-xenial_amd64.deb && \
 date )
+
+cp -rf ./node_manager /opt
+# 
+systemctl stop  node_manager.service || echo 'stop service end'
+cp /opt/node_manager/node_manager.service /etc/systemd/system/
+ls /opt/node_manager/
+systemctl enable   node_manager.service
+systemctl restart  node_manager.service
+systemctl status   node_manager.service
+# journalctl -u node_manager -f  -n 100
+
+
+
 
 
 # ref: 
